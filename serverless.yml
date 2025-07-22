@@ -10,6 +10,7 @@ provider:
     cors: 
       allowedOrigins:
         - https://www.route66-route66.afterlife.org.in
+        - https://www.route66-admin.afterlife.org.in
       allowedMethods:
         - GET
         - POST
