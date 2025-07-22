@@ -1,4 +1,4 @@
-service: afterlife-financials-api
+service: route66-route66
 
 provider:
   name: aws
