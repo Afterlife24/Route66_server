@@ -1,0 +1,36 @@
+service: afterlife-financials-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-3
+  environment:
+    MONGO_URI: ${env:MONGO_URI}
+  httpApi:
+    cors: 
+      allowedOrigins:
+        - https://www.route66-route66.afterlife.org.in
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+      allowedHeaders:
+        - Content-Type
+        - Authorization
+
+functions:
+  app:
+    handler: lambda.handler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: '*'
+
+plugins:
+  - serverless-offline
+
+package:
+  exclude:
+    - node_modules/aws-sdk/**
