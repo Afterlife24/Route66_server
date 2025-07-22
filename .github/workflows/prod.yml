@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Install Serverless CLI
-        run: npm install -g serverless
+        run: npm install -g serverless@3
 
       - name: Deploy to AWS Lambda
         run: serverless deploy
